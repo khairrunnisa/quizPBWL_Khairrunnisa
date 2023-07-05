@@ -62,10 +62,11 @@ class PelangganController extends Controller
      */
     public function edit(string $id)
     {
+        $getGolongan = Golongan::all();
         $row = Pelanggan::findOrFail($id);
         $rowUser = User::findOrFail($row->pel_id_user);
         $rowGolongan = Golongan::findOrFail($row->pel_id_gol);
-        return view('pelanggan.edit', compact('row', 'rowUser', 'rowGolongan'));
+        return view('pelanggan.edit', compact('row', 'rowUser', 'rowGolongan', 'getGolongan'));
     }
 
     /**
@@ -75,9 +76,13 @@ class PelangganController extends Controller
     {
         $row = Pelanggan::findOrFail($id);
         $row->update([
+            'pel_id_gol' => $request->pel_id_gol,
+            'pel_no' => $request->pel_no,
             'pel_nama' => $request->pel_nama,
             'pel_alamat' => $request->pel_alamat,
             'pel_hp' => $request->pel_hp,
+            'pel_ktp' => $request->pel_ktp,
+            'pel_seri' => $request->pel_seri,
             'pel_meteran' => $request->pel_meteran,
             'pel_aktif' => $request->pel_aktif,
         ]);

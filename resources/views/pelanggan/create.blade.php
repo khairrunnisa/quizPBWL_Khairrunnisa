@@ -45,15 +45,15 @@
         <div class="mb-3">
             <label for="">Status Pelanggan Aktif</label>
         </div>
-        <div class="form-check form-check-inline">
+        <div class="mb-3">
             <input class="form-check-input" type="radio" name="pel_aktif" id="inlineCheckbox1" value="Y">
-            <label class="form-check-label" for="inlineCheckbox1">Yes</label>
+            <label class="form-check-label" for="inlineCheckbox1">Y</label>
         </div>
-        <div class="form-check form-check-inline">
+        <div class="mb-3">
             <input class="form-check-input" type="radio" id="inlineCheckbox2" name="pel_aktif" value="N">
-            <label class="form-check-label" for="inlineCheckbox2">No</label>
+            <label class="form-check-label" for="inlineCheckbox2">N</label>
         </div>
-        <div class="input-group my-3">
+        <div class="input-group mb-3">
             <label class="input-group-text" for="inputGroupSelect01">ID User Pelanggan</label>
             <select class="form-select" id="inputGroupSelect01" name="pel_id_user" id="pel_id_user">
                 <option selected>Pilih User...</option>

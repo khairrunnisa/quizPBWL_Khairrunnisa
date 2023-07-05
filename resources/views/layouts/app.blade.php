@@ -19,11 +19,13 @@
     <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
 </head>
 
-<body>
+<body style="background-color: #FFE4A7;">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-lg">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/home') }}">
+        <nav class="navbar navbar-expand-md  shadow-lg" style="background-color: #FF90BB; ">
+            <div class="container ">
+                <img src="../resources/img/logo_makeup.jpeg" alt="" class="rounded-circle me-3 "
+                    style="width: 40px; height: 40;">
+                <a class="navbar-brand text-light" href="{{ url('/home') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -33,16 +35,7 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/pelanggan') }}">Pelanggan</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/golongan') }}">Golongan</a>
-                        </li>
 
-                    </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
@@ -61,12 +54,20 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link text-light dropdown-toggle " href="#"
+                                    role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                    v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <div style="background-color: #FFFAD7;" class="dropdown-menu dropdown-menu-end "
+                                    staria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ url('/pelanggan') }}">
+                                        {{ __('Pelanggan') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ url('/golongan') }}">
+                                        {{ __('Golongan') }}
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

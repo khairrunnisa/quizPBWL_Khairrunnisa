@@ -7,13 +7,17 @@
         <form action="{{ url('/pelanggan/' . $row->pel_id) }}" method="POST">
             @method('PATCH')
             @csrf
-            <div class="mb-3">
-                <label>Nama Golongan Pelanggan</label>
-                <input type="text" class="form-control" name="pel_no" value="{{ $rowGolongan->gol_nama }}" disabled></>
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect01">Nama Golongan Pelanggan</label>
+                <select class="form-select" id="inputGroupSelect01" name="pel_id_gol" id="pel_id_gol">
+                    @foreach ($getGolongan as $golItem)
+                        <option value="{{ $golItem->gol_id }}">{{ $golItem->gol_nama }}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="mb-3">
                 <label>Nomor Pelanggan</label>
-                <input type="text" class="form-control" name="pel_no" value="{{ $row->pel_no }}" disabled></>
+                <input type="text" class="form-control" name="pel_no" value="{{ $row->pel_no }}"></>
             </div>
             <div class="mb-3">
                 <label>Nama Pelanggan</label>
@@ -29,11 +33,11 @@
             </div>
             <div class="mb-3">
                 <label>Ktp Pelanggan</label>
-                <input type="text" class="form-control" name="pel_ktp" value="{{ $row->pel_ktp }}" disabled></>
+                <input type="text" class="form-control" name="pel_ktp" value="{{ $row->pel_ktp }}"></>
             </div>
             <div class="mb-3">
                 <label>Nomor Seri Pelanggan</label>
-                <input type="text" class="form-control" name="pel_seri" value="{{ $row->pel_seri }}" disabled></>
+                <input type="text" class="form-control" name="pel_seri" value="{{ $row->pel_seri }}"></>
             </div>
             <div class="mb-3">
                 <label>No Meteran Pelanggan</label>
@@ -42,19 +46,15 @@
             <div class="mb-3">
                 <label for="">Status Pelanggan Aktif</label>
             </div>
-            <div class="form-check form-check-inline">
+            <div class="mb-3">
                 <input class="form-check-input" type="radio" name="pel_aktif" id="inlineCheckbox1" value="Y"
                     @if ($row->pel_aktif == 'Y') checked @endif>
-                <label class="form-check-label" for="inlineCheckbox1">Yes</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" id="inlineCheckbox2" name="pel_aktif" value="N"
-                    @if ($row->pel_aktif == 'N') checked @endif>
-                <label class="form-check-label" for="inlineCheckbox2">No</label>
+                <label class="form-check-label" for="inlineCheckbox1">Y</label>
             </div>
             <div class="mb-3">
-                <label>Id User Pelanggan</label>
-                <input type="text" class="form-control" name="pel_aktif" value="{{ $rowUser->name }}" disabled></>
+                <input class="form-check-input" type="radio" id="inlineCheckbox2" name="pel_aktif" value="N"
+                    @if ($row->pel_aktif == 'N') checked @endif>
+                <label class="form-check-label" for="inlineCheckbox2">N</label>
             </div>
             <div class="mb-3">
                 <input class="btn btn-primary btn-sm float-none" type="submit" value="UPDATE">
